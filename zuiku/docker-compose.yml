@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: longjing
+      MYSQL_USER: root
+      MYSQL_PASSWORD: lxzq102318
+      MYSQL_ROOT_PASSWORD: lxzq102318
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  crawler:
+    build: ..
+    depends_on:
+      - mysql
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+
+volumes:
+  mysql_data:
