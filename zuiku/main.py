@@ -2,7 +2,7 @@ import logging
 import logging.config
 from config import LOG_CONFIG
 from database import Database
-
+# 测试
 from crawler import RaceCrawler
 from image_analyzer import ImageAnalyzer
 from data_extractor import DataExtractor
